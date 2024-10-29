@@ -1,0 +1,33 @@
+# Rust related
+/target/
+**/*.rs.bk
+**/*.rs.old
+
+# Build artifacts
+/target/
+**/*.dSYM
+*.stackdump
+
+# Dependencies
+/.cargo
+
+# Output of rustfmt
+**/rustfmt.toml
+
+# Logs
+*.log
+
+# Other
+.idea/
+.vscode/
+*.rs.bk
+*.rs.bk.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Git specific
+/.git/
+*.swp
+*.swo

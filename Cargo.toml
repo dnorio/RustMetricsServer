@@ -1,0 +1,23 @@
+[package]
+name = "my_rust_server"
+version = "0.0.1"
+edition = "2021"
+
+[dev-dependencies]
+reqwest = { version = "0.11", features = ["json"] }
+tokio = { version = "1", features = ["full"] }
+criterion = { version = "0.5.1", features = ["html_reports"] }
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+hyper = { version = "0.14", features = ["full", "server"] }  # Enable "server" feature
+axum = "0.7.7"
+axum-server = "0.7.1"
+axum-extra = "0.9.4"
+serde = { version = "1.0.214", features = ["derive"] }
+utoipa = "5.1.3"
+utoipa-swagger-ui = { version = "8.0.3", features = ["axum"] }
+
+[[bench]]
+name = "benchmark"
+harness = false

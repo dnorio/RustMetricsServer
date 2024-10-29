@@ -1,0 +1,6 @@
+.dockerignore
+target
+*.rs.bk
+docker-compose.yaml
+Dockerfile
+README.md

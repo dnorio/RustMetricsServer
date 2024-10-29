@@ -1,0 +1,43 @@
+services:
+  rust-metrics-dev:
+    container_name: rust-metrics-dev
+    build:
+      context: .
+      target: dev
+    ports:
+      - "3002:3000"
+      - "9229:9229"
+    env_file:
+      - .env
+    networks:
+      - minikube
+    volumes:
+      - .:/app
+    command: ["cargo", "watch", "-x", "run"]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "512M"
+
+  rust-metrics:
+    container_name: rust-metrics
+    build:
+      context: .
+      target: prod
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    networks:
+      - minikube
+    command: ["./my_rust_server"]
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: "128M"
+
+networks:
+  minikube:
+    external: true
